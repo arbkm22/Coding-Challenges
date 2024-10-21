@@ -5,7 +5,6 @@
 #include <string>
 using namespace std;
 
-
 size_t sizeCalc(string fileName) {
     ifstream inputFile(fileName);
     if (!inputFile) {
@@ -53,6 +52,7 @@ int numOfWords(string fileName) {
 }
 
 int main(int argc, char *argv[]) {
+    
     if (strcmp(argv[1], "-c") == 0) { 
         int fileSize = sizeCalc(argv[2]);
         cout << fileSize << " " << argv[2] << endl;
@@ -66,7 +66,10 @@ int main(int argc, char *argv[]) {
         cout << numberOfWords << " " << argv[2] << endl;
     }
     else {
-        cout << "incorrect paramter" << endl;
+        int numberOfLines = numOfLines(argv[1]);
+        int numberOfWords = numOfWords(argv[1]);
+        int fileSize = sizeCalc(argv[1]);
+        cout << numberOfLines << " " << numberOfWords << " " << fileSize << " " << argv[1] << endl;
     }
 
     return 0;
